@@ -20,7 +20,7 @@ This API supports user authentication, task categorization, and task collaborati
 - **Django**
 - **Django REST Framework**
 - **SQLite** (for development)
-- **PostgreSQL** (recommended for production)
+  
 
 ---
 
