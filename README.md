@@ -51,7 +51,7 @@ task-management-api/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/YOUR-USERNAME/task-management-api.git
+   git clone https://github.com/bekisho/task-management-api.git
    cd task-management-api
 ````
 
@@ -59,7 +59,6 @@ task-management-api/
 
    ```bash
    python -m venv venv
-   source venv/bin/activate   # On Linux/Mac
    venv\Scripts\activate      # On Windows
    ```
 
