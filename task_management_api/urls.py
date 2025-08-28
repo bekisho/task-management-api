@@ -15,16 +15,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-]
-
-from django.contrib import admin
 from django.urls import path, include
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Welcome to Task Management API! Go to /api/ to use the API.")
 
 urlpatterns = [
+    path('', home),  # 👈 This handles http://127.0.0.1:8000/
     path('admin/', admin.site.urls),
-    path('api/', include('tasks.urls')), # Include the API URLs from the tasks app
+    path('api/', include('tasks.urls')),
 ]
