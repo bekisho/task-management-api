@@ -24,6 +24,9 @@ router.register(r'categories', CategoryViewSet, basename='category')
 urlpatterns = [
     path('register/', RegisterView.as_view(), name='register'),
     path('comments/<int:task_id>/', CommentListCreateView.as_view(), name='task-comments'),
+    path('register/', RegisterView.as_view(), name='register'),
+    path('api/register/', RegisterView.as_view(), name='register'),
 ]
+
 
 urlpatterns += router.urls
