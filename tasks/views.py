@@ -1,18 +1,24 @@
 from django.shortcuts import render
 
 # Create your views here.
-
 from rest_framework import generics, viewsets
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
 from .models import User, Task, Category, Comment
-from .serializers import UserSerializer, TaskSerializer, CategorySerializer, CommentSerializer
+from .serializers import UserSerializer, TaskSerializer, CategorySerializer, CommentSerializer, RegisterSerializer
+from rest_framework.permissions import AllowAny
+from rest_framework.views import APIView
+from .serializers import UserSerializer, TaskSerializer, CategorySerializer, CommentSerializer, RegisterSerializer
+
 
 # User registration view
+
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = [AllowAny]   # 🔑 Open for everyone
+
 
 # Task management views
 class TaskViewSet(viewsets.ModelViewSet):

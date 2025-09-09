@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'tasks',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
