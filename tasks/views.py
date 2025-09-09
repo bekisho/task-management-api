@@ -54,14 +54,17 @@ from rest_framework.response import Response
 from rest_framework import status
 
 class RegisterView(APIView):
-    permission_classes = [AllowAny]  # This makes it public
+    permission_classes = [AllowAny]
 
     def get(self, request):
         return Response({"message": "Send a POST request to register"}, status=status.HTTP_200_OK)
 
     def post(self, request):
-        # Your registration logic here
-        return Response({"message": "User registered successfully"}, status=status.HTTP_201_CREATED)
+        serializer = RegisterSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 class UserDetailView(generics.RetrieveDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = RegisterSerializer
